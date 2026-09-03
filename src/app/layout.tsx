@@ -68,10 +68,11 @@ export default function RootLayout({
         <SiteFooter />
         <CookieNotice />
         <Script
+          id="adsense"
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${PUBLISHER_ID}`}
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
       </body>
     </html>
