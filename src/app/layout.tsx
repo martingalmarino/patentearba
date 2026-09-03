@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   description:
     "Calculá una estimación del impuesto automotor en la Provincia de Buenos Aires con la escala 2026. Sitio independiente, no oficial.",
   authors: [{ name: "Martín Galmarino" }],
+  verification: {
+    google: "RMxkAlM6pTvfE11lDYIYqKuI57p20GtiBDqynQEbN9s",
+  },
   other: {
     "google-adsense-account": PUBLISHER_ID,
   },
