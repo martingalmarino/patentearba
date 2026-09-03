@@ -33,7 +33,9 @@ export const metadata: Metadata = {
     "google-adsense-account": PUBLISHER_ID,
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
   openGraph: {
     title: "Calculadora de patente ARBA 2026",
