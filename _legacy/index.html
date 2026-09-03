@@ -1,0 +1,1662 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulador de Patente ARBA 2026 | Calculadora de Patente PBA</title>
+  <meta name="description" content="Simulador de patente ARBA 2026 ✓ Calculadora online gratuita para calcular patente ARBA en Buenos Aires. Calculá el impuesto automotor con la escala actualizada 2026." />
+  <meta name="keywords" content="simulador de patente arba, simulador de patente arba 2026, calculadora de patente arba, calculo patente arba, calcular patente arba, simulador patente arba, calculadora patente arba" />
+  <meta name="author" content="Calculadora Patente PBA" />
+  <meta property="og:title" content="Simulador de Patente ARBA 2026 | Calculadora Buenos Aires" />
+  <meta property="og:description" content="Usá nuestro simulador de patente ARBA 2026 para calcular el impuesto automotor de tu vehículo. Gratis, rápido y actualizado." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root{
+      --primary-red: #E31837;
+      --primary-red-dark: #C41230;
+      --primary-red-light: #FF2952;
+      --navy-blue: #012169;
+      --navy-blue-dark: #001551;
+      --navy-blue-light: #003087;
+      --accent-blue: #0073CF;
+      --accent-blue-light: #3399FF;
+      --bg-white: #FFFFFF;
+      --bg-light: #F5F5F5;
+      --bg-lighter: #FAFAFA;
+      --card-bg: #FFFFFF;
+      --text-primary: #333333;
+      --text-secondary: #666666;
+      --text-muted: #999999;
+      --border-light: #E5E5E5;
+      --border-medium: #CCCCCC;
+      --shadow-light: rgba(0, 0, 0, 0.08);
+      --shadow-medium: rgba(0, 0, 0, 0.12);
+      --success: #00A758;
+      --warning: #F59E0B;
+      --error: #D32F2F;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-lighter);
+      min-height: 100vh;
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 0;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .container {
+      position: relative;
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    /* Header Styles - Full width inspired by BofA */
+    header {
+      background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+      color: white;
+      padding: 40px 20px 120px 20px;
+      position: relative;
+      margin-bottom: -80px;
+      box-shadow: 0 4px 12px var(--shadow-medium);
+      width: 100%;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: white;
+    }
+
+    h1 {
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: clamp(14px, 2.5vw, 17px);
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 700px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 20px;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .badge svg {
+      width: 16px;
+      height: 16px;
+      stroke: white;
+    }
+
+    /* Main Grid Layout */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 0 20px 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (min-width: 768px) {
+      .main-grid {
+        padding: 0 30px 50px 30px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .main-grid {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 40px 60px 40px;
+      }
+    }
+
+    @media (min-width: 1280px) {
+      .main-grid {
+        padding: 0 20px 60px 20px;
+      }
+    }
+
+    /* Card Styles - Clean white design */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 2px 8px var(--shadow-light), 0 8px 24px var(--shadow-medium);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px var(--shadow-light), 0 12px 32px var(--shadow-medium);
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--navy-blue);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--bg-light);
+    }
+
+    @media (max-width: 767px) {
+      .card-title {
+        font-size: 18px;
+        gap: 10px;
+      }
+    }
+
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: white;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      letter-spacing: 0;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--bg-white);
+      border: 2px solid var(--border-medium);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-size: 15px;
+      font-family: inherit;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(0, 115, 207, 0.1);
+    }
+
+    input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .input-prefix {
+      position: relative;
+    }
+
+    .input-prefix input {
+      padding-left: 32px;
+    }
+
+    .input-prefix::before {
+      content: '$';
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .hint {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    button svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 13px 28px;
+      border: none;
+      border-radius: 24px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+      color: white;
+      box-shadow: 0 2px 8px rgba(227, 24, 55, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--primary-red-light) 0%, var(--primary-red) 100%);
+      box-shadow: 0 6px 20px rgba(227, 24, 55, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0) scale(0.98);
+      box-shadow: 0 2px 8px rgba(227, 24, 55, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text-primary);
+      border: 2px solid var(--border-medium);
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, rgba(227, 24, 55, 0.05) 0%, rgba(1, 33, 105, 0.05) 100%);
+      border-color: var(--primary-red);
+      color: var(--primary-red);
+      box-shadow: 0 2px 8px rgba(227, 24, 55, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary:active {
+      transform: translateY(0);
+    }
+
+    /* Result Cards */
+    .result-card {
+      background: linear-gradient(135deg, rgba(227, 24, 55, 0.05) 0%, rgba(1, 33, 105, 0.05) 100%);
+      border: 2px solid rgba(227, 24, 55, 0.15);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .result-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .result-value {
+      font-size: clamp(36px, 7vw, 52px);
+      font-weight: 800;
+      color: var(--primary-red);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 480px) {
+      .result-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .metric-card {
+      background: var(--bg-lighter);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 18px;
+      transition: all 0.2s ease;
+    }
+
+    .metric-card:hover {
+      background: white;
+      border-color: var(--primary-red);
+      box-shadow: 0 4px 12px rgba(227, 24, 55, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .metric-card:hover .metric-label {
+      color: var(--primary-red);
+    }
+
+    .metric-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy-blue);
+      transition: color 0.2s ease;
+    }
+
+    .metric-card:hover .metric-value {
+      color: var(--primary-red);
+    }
+
+    @media (max-width: 767px) {
+      .metric-value {
+        font-size: 22px;
+      }
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--bg-lighter);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .tag svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--accent-blue);
+    }
+
+    details {
+      background: var(--bg-lighter);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 18px;
+      margin-top: 20px;
+      transition: all 0.2s ease;
+    }
+
+    details:hover {
+      border-color: var(--border-medium);
+    }
+
+    details[open] {
+      background: white;
+      box-shadow: 0 2px 8px var(--shadow-light);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--navy-blue);
+      -webkit-user-select: none;
+      user-select: none;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::before {
+      content: '▶';
+      font-size: 10px;
+      transition: transform 0.2s ease;
+      color: var(--accent-blue);
+    }
+
+    details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .content {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 16px;
+      font-size: 13px;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--border-light);
+    }
+
+    th, td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    th {
+      background: var(--navy-blue);
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    td {
+      color: var(--text-primary);
+      background: white;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover td {
+      background: var(--bg-lighter);
+    }
+
+    /* Mejorar tabla en móviles */
+    @media (max-width: 640px) {
+      table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+
+    .formula-box {
+      background: var(--bg-lighter);
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 18px;
+      margin-top: 16px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--text-primary);
+      overflow-x: auto;
+    }
+
+    .info-box {
+      background: rgba(0, 115, 207, 0.08);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    .info-box strong {
+      color: var(--navy-blue);
+      font-weight: 700;
+    }
+
+    /* FAQ Section Styles */
+    .faq-section {
+      max-width: 1200px;
+      margin: 40px auto 60px auto;
+      padding: 0 20px;
+      overflow-x: hidden;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .faq-header h2 {
+      font-size: clamp(26px, 5vw, 34px);
+      font-weight: 800;
+      color: var(--navy-blue);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      word-wrap: break-word;
+    }
+
+    .faq-header p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      word-wrap: break-word;
+    }
+
+    .faq-container {
+      display: grid;
+      gap: 16px;
+      overflow-x: hidden;
+    }
+
+    .faq-item {
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      max-width: 100%;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 12px var(--shadow-light);
+      border-color: var(--accent-blue);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 20px 24px;
+      background: white;
+      border: none;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy-blue);
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.2s ease;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
+      line-height: 1.4;
+      hyphens: auto;
+    }
+
+    .faq-question:hover {
+      background: var(--bg-lighter);
+      color: var(--primary-red);
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--primary-red);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      min-width: 28px;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 1000px;
+    }
+
+    .faq-answer-content {
+      padding: 0 24px 24px 24px;
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .faq-answer-content strong {
+      color: var(--navy-blue);
+      font-weight: 600;
+    }
+
+    .faq-answer-content ul {
+      margin: 12px 0;
+      padding-left: 20px;
+    }
+
+    .faq-answer-content li {
+      margin: 8px 0;
+      color: var(--text-primary);
+    }
+
+    .faq-cta {
+      background: linear-gradient(135deg, rgba(227, 24, 55, 0.05) 0%, rgba(1, 33, 105, 0.05) 100%);
+      border: 2px solid var(--border-light);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .faq-cta h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy-blue);
+      margin-bottom: 12px;
+    }
+
+    .faq-cta p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    .faq-cta a {
+      display: inline-block;
+      padding: 13px 32px;
+      background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 24px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .faq-cta a:hover {
+      background: linear-gradient(135deg, var(--primary-red-dark) 0%, var(--navy-blue) 100%);
+      box-shadow: 0 4px 12px rgba(227, 24, 55, 0.3);
+    }
+
+    @media (max-width: 767px) {
+      .faq-section {
+        padding: 0 16px;
+        margin: 30px auto 40px auto;
+      }
+
+      .faq-header {
+        margin-bottom: 30px;
+      }
+
+      .faq-header h2 {
+        font-size: 24px;
+        line-height: 1.3;
+      }
+
+      .faq-header p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .faq-question {
+        padding: 16px 18px;
+        font-size: 15px;
+        line-height: 1.4;
+        gap: 12px;
+      }
+
+      .faq-question::after {
+        font-size: 24px;
+        min-width: 24px;
+      }
+
+      .faq-answer-content {
+        padding: 0 18px 20px 18px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .faq-answer-content ul {
+        padding-left: 18px;
+      }
+
+      .faq-answer-content li {
+        margin: 6px 0;
+      }
+
+      .faq-cta {
+        padding: 24px 20px;
+      }
+
+      .faq-cta h3 {
+        font-size: 20px;
+        line-height: 1.3;
+      }
+
+      .faq-cta p {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .faq-section {
+        padding: 0 12px;
+        margin: 20px auto 30px auto;
+      }
+
+      .faq-header {
+        margin-bottom: 24px;
+      }
+
+      .faq-header h2 {
+        font-size: 20px;
+        line-height: 1.3;
+        padding: 0 8px;
+      }
+
+      .faq-header p {
+        font-size: 13px;
+        line-height: 1.4;
+        padding: 0 8px;
+      }
+
+      .faq-container {
+        gap: 12px;
+      }
+
+      .faq-item {
+        border-radius: 10px;
+      }
+
+      .faq-question {
+        padding: 14px 16px;
+        font-size: 14px;
+        line-height: 1.4;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .faq-question::after {
+        font-size: 22px;
+        min-width: 22px;
+        padding-top: 2px;
+      }
+
+      .faq-answer {
+        overflow-x: hidden;
+      }
+
+      .faq-answer-content {
+        padding: 0 16px 18px 16px;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .faq-answer-content ul {
+        padding-left: 16px;
+        margin: 10px 0;
+      }
+
+      .faq-answer-content li {
+        margin: 5px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .faq-answer-content p {
+        margin: 10px 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .faq-cta {
+        padding: 20px 16px;
+        border-radius: 10px;
+      }
+
+      .faq-cta h3 {
+        font-size: 18px;
+        line-height: 1.3;
+        margin-bottom: 8px;
+      }
+
+      .faq-cta p {
+        font-size: 13px;
+        line-height: 1.4;
+        margin-bottom: 16px;
+      }
+
+      .faq-cta a {
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border-light);
+      margin-top: 60px;
+      background: var(--bg-light);
+    }
+
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      color: var(--primary-red);
+      text-decoration: underline;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 30px 20px 100px 20px;
+        margin-bottom: -60px;
+      }
+
+      .header-content {
+        padding: 0;
+      }
+
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .logo-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .main-grid {
+        padding: 0 16px 30px 16px;
+        gap: 20px;
+      }
+
+      .card {
+        padding: 24px 20px;
+      }
+
+      .card-title {
+        font-size: 18px;
+      }
+
+      .card-icon {
+        width: 32px;
+        height: 32px;
+      }
+
+      .btn-group {
+        flex-direction: column;
+        margin-top: 20px;
+      }
+
+      button {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+      }
+
+      .result-card {
+        padding: 20px;
+      }
+
+      .result-value {
+        font-size: clamp(28px, 10vw, 42px);
+      }
+
+      table {
+        font-size: 12px;
+      }
+
+      th, td {
+        padding: 10px 8px;
+      }
+
+      .formula-box {
+        font-size: 11px;
+        padding: 14px;
+      }
+
+      footer {
+        padding: 30px 16px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 24px 16px 90px 16px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+      }
+
+      .badge {
+        font-size: 12px;
+        padding: 5px 12px;
+      }
+
+      .form-row {
+        gap: 14px;
+      }
+
+      label {
+        font-size: 13px;
+      }
+
+      input, select {
+        padding: 11px 12px;
+        font-size: 14px;
+      }
+
+      .input-prefix input {
+        padding-left: 28px;
+      }
+
+      .result-label {
+        font-size: 11px;
+      }
+
+      .metric-label {
+        font-size: 10px;
+      }
+
+      .metric-value {
+        font-size: 20px;
+      }
+    }
+  </style>
+  <meta name="google-adsense-account" content="ca-pub-6771833588582297">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <h1>Simulador de Patente ARBA 2026</h1>
+        <p class="subtitle">
+          Calculá el impuesto automotor en Buenos Aires con nuestro simulador de patente ARBA actualizado • 
+          Cálculo preciso basado en la escala progresiva oficial 2026
+        </p>
+        <div class="badge">
+          <i data-lucide="check-circle"></i>
+          Actualizado 2026
+        </div>
+      </div>
+    </header>
+
+    <div class="main-grid">
+      <section class="card">
+        <h2 class="card-title">
+          <span class="card-icon">
+            <i data-lucide="clipboard-list"></i>
+          </span>
+          Simulador de Patente - Ingresá tus Datos
+        </h2>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tipo">Tipo de Vehículo</label>
+            <select id="tipo">
+              <option value="auto">🚗 Automóvil</option>
+              <option value="moto">🏍️ Motocicleta</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="anio">Año del Vehículo</label>
+            <input id="anio" type="number" min="1950" max="2026" step="1" value="2022" placeholder="Ej: 2022" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="valuacion">
+            Valuación Fiscal 2026
+          </label>
+          <div class="input-prefix">
+            <input id="valuacion" type="text" inputmode="numeric" placeholder="16.000.000" />
+          </div>
+          <div class="hint">
+            Usá la valuación fiscal oficial para calcular patente ARBA correctamente. Podés encontrarla en tu boleta o en arba.gob.ar
+          </div>
+        </div>
+
+        <details>
+          <summary>Opciones avanzadas: Estimar por antigüedad</summary>
+          <div class="content">
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;">
+              Si no conocés la valuación fiscal exacta, podés ingresar un valor de mercado aproximado
+              y aplicaremos un factor de depreciación según la antigüedad del vehículo.
+            </p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="usarFactor">Usar Factor de Antigüedad</label>
+                <select id="usarFactor">
+                  <option value="no" selected>No usar</option>
+                  <option value="si">Sí, aplicar factor</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="valorBase">Valor de Mercado Estimado</label>
+                <div class="input-prefix">
+                  <input id="valorBase" type="text" inputmode="numeric" placeholder="18.000.000" disabled />
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <div class="btn-group">
+          <button id="btnCalc" class="btn-primary">
+            <i data-lucide="calculator"></i>
+            Calcular Patente ARBA
+          </button>
+          <button id="btnReset" class="btn-secondary">
+            <i data-lucide="rotate-ccw"></i>
+            Limpiar
+          </button>
+        </div>
+
+        <div class="info-box">
+          <strong><i data-lucide="info" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle;"></i> Nota importante:</strong> Este simulador de patente ARBA 2026 calcula el impuesto base.
+          ARBA puede ofrecer descuentos por buen cumplimiento fiscal o pago anual anticipado.
+          Los recargos por mora no están incluidos en esta calculadora.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">
+          <span class="card-icon">
+            <i data-lucide="badge-dollar-sign"></i>
+          </span>
+          Resultado del Cálculo de Patente ARBA
+        </h2>
+
+        <div class="tag" id="tramoPill">
+          <i data-lucide="bar-chart-3"></i>
+          <span>Esperando cálculo...</span>
+        </div>
+
+        <div class="result-card">
+          <div class="result-label">Impuesto Anual ARBA 2026</div>
+          <div class="result-value" id="anual">$ —</div>
+        </div>
+
+        <div class="result-grid">
+          <div class="metric-card">
+            <div class="metric-label">Por Cuota (10 cuotas)</div>
+            <div class="metric-value" id="cuota">$ —</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Ahorro Pago Anual*</div>
+            <div class="metric-value" id="ahorro">$ —</div>
+          </div>
+        </div>
+
+        <details>
+          <summary>Ver detalle del cálculo</summary>
+          <div class="content">
+            <div class="formula-box" id="formula">
+              Realizá un cálculo para ver el detalle completo de cómo se obtuvo el resultado.
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Tabla de tramos progresivos 2026</summary>
+          <div class="content">
+            <table>
+              <thead>
+                <tr>
+                  <th>Valuación Fiscal</th>
+                  <th>Cálculo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Hasta $14.100.000</td>
+                  <td>1% del valor</td>
+                </tr>
+                <tr>
+                  <td>$14.100.001 - $18.700.000</td>
+                  <td>$141.000 + 2% del excedente</td>
+                </tr>
+                <tr>
+                  <td>$18.700.001 - $26.100.000</td>
+                  <td>$233.000 + 3% del excedente</td>
+                </tr>
+                <tr>
+                  <td>$26.100.001 - $53.900.000</td>
+                  <td>$455.000 + 4% del excedente</td>
+                </tr>
+                <tr>
+                  <td>Más de $53.900.000</td>
+                  <td>$1.567.000 + 4,5% del excedente</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>Información sobre factor de antigüedad</summary>
+          <div class="content">
+            <div class="formula-box" id="factorInfo">
+              El factor de antigüedad se aplicará cuando realices un cálculo usando esta opción.
+              <br/><br/>
+              <strong>Método:</strong> Se reduce 5% por cada año de antigüedad desde 2026, con un mínimo del 30%.
+              <br/><br/>
+              <strong>Ejemplo:</strong> Un vehículo 2022 (4 años) tendría un factor de 0,80 (80%).
+            </div>
+          </div>
+        </details>
+      </section>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="faq-header">
+        <h2>Preguntas Frecuentes - Simulador de Patente ARBA 2026</h2>
+        <p>Todo lo que necesitás saber para calcular patente ARBA en Buenos Aires y usar nuestro simulador correctamente</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Cómo funciona este simulador de patente ARBA 2026?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              <p>Nuestro <strong>simulador de patente ARBA</strong> es una calculadora online gratuita que te permite calcular el impuesto automotor de forma instantánea. Solo necesitás ingresar la valuación fiscal de tu vehículo y el sistema calcula automáticamente usando el <strong>sistema de tramos progresivos oficial de ARBA</strong>:</p>
+              <ul>
+                <li>Para vehículos valuados hasta $14.100.000: se aplica el 1% del valor</li>
+                <li>Entre $14.100.001 y $18.700.000: $141.000 base + 2% del excedente</li>
+                <li>Entre $18.700.001 y $26.100.000: $233.000 base + 3% del excedente</li>
+                <li>Entre $26.100.001 y $53.900.000: $455.000 base + 4% del excedente</li>
+                <li>Más de $53.900.000: $1.567.000 base + 4,5% del excedente</li>
+              </ul>
+              <p>Esta <strong>calculadora de patente ARBA</strong> está actualizada con los valores oficiales 2026 para que obtengas el monto exacto a pagar.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Es confiable este simulador patente ARBA para calcular mi impuesto?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              <p><strong>Sí, es completamente confiable.</strong> Nuestra calculadora de patente ARBA utiliza los mismos tramos y porcentajes que aplica la Agencia de Recaudación de la Provincia de Buenos Aires (ARBA) en sus liquidaciones oficiales.</p>
+              <p>El <strong>cálculo de patente ARBA</strong> se realiza de forma transparente mostrándote:</p>
+              <ul>
+                <li>El tramo aplicado según tu valuación fiscal</li>
+                <li>El desglose completo de la fórmula utilizada</li>
+                <li>El impuesto anual y el valor de cada cuota</li>
+                <li>La posibilidad de ahorro con pago anticipado</li>
+              </ul>
+              <p>Miles de usuarios confían en este <strong>simulador de patente ARBA 2026</strong> para estimar sus pagos antes de recibir la boleta oficial.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Dónde consulto la valuación fiscal para usar el simulador de patente?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              <p>Para usar correctamente nuestra <strong>calculadora patente ARBA</strong>, necesitás conocer la valuación fiscal oficial de tu vehículo. Podés consultarla en:</p>
+              <ul>
+                <li><strong>Boleta de ARBA:</strong> La valuación figura en tu última boleta del impuesto automotor</li>
+                <li><strong>Web de ARBA:</strong> Ingresando a arba.gob.ar con tu dominio y patente</li>
+                <li><strong>Tabla DNRPA:</strong> La Dirección Nacional de Registro del Automotor publica las valuaciones anuales</li>
+                <li><strong>App Mi Argentina:</strong> Podés consultar tus vehículos y sus valuaciones</li>
+              </ul>
+              <p>Es fundamental usar la <strong>valuación fiscal oficial</strong> (no el precio de mercado) para que el simulador calcule el monto correcto.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Cuándo vencen las cuotas de la patente en Buenos Aires?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              <p>ARBA establece un <strong>calendario de vencimientos</strong> anual para el pago del impuesto automotor. Después de usar nuestro <strong>simulador de patente ARBA</strong> para conocer el monto, las fechas de pago varían según:</p>
+              <ul>
+                <li><strong>Pago anual anticipado:</strong> Generalmente vence en enero/febrero con descuentos del 10%</li>
+                <li><strong>Plan de 5 cuotas bimestrales:</strong> Vencimientos cada 2 meses según cronograma</li>
+                <li><strong>Plan de 10 cuotas mensuales:</strong> Vencimientos mensuales sin bonificación</li>
+              </ul>
+              <p>Te recomendamos consultar el calendario oficial en la web de ARBA para conocer las fechas exactas según tu caso particular.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Qué descuentos existen para pagar la patente del auto?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              <p>La Agencia de Recaudación de Buenos Aires ofrece varios <strong>beneficios y bonificaciones</strong> para contribuyentes:</p>
+              <ul>
+                <li><strong>Pago anual anticipado:</strong> Hasta 10% de descuento si pagás todo el año por adelantado</li>
+                <li><strong>Buen cumplimiento fiscal:</strong> Descuentos adicionales para quienes no tienen deudas</li>
+                <li><strong>Débito automático:</strong> Algunas bonificaciones por adherir al débito automático</li>
+                <li><strong>Contribuyentes cumplidores:</strong> ARBA premia a quienes pagan en término</li>
+              </ul>
+              <p>Los porcentajes exactos pueden variar cada año. Consultá las condiciones vigentes en el sitio oficial.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Cómo pago la patente de mi auto en Buenos Aires?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              <p>ARBA ofrece <strong>múltiples canales de pago</strong> para tu comodidad:</p>
+              <ul>
+                <li><strong>Home Banking:</strong> A través de tu banco con Pago Mis Cuentas o transferencia</li>
+                <li><strong>Débito automático:</strong> Adhesión para descuento automático de tu cuenta</li>
+                <li><strong>Rapipago/Pago Fácil:</strong> En efectivo en cualquier sucursal con el código de pago</li>
+                <li><strong>Cajeros Link/Banelco:</strong> Utilizando tu tarjeta de débito</li>
+                <li><strong>Oficinas de ARBA:</strong> Pago presencial en agencias de recaudación</li>
+                <li><strong>Web de ARBA:</strong> Pago online con tarjeta de crédito/débito</li>
+              </ul>
+              <p>Cada método puede tener diferentes plazos de acreditación y comisiones.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Qué pasa si no pago la patente del auto?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              <p>No pagar el impuesto automotor en Buenos Aires genera varias <strong>consecuencias legales y económicas</strong>:</p>
+              <ul>
+                <li><strong>Recargos e intereses:</strong> Punitorios que aumentan la deuda considerablemente</li>
+                <li><strong>Inicio de acciones judiciales:</strong> ARBA puede ejecutar la deuda en tribunales</li>
+                <li><strong>Embargo de bienes:</strong> Medidas cautelares sobre cuentas bancarias o propiedades</li>
+                <li><strong>Imposibilidad de transferir:</strong> No podés vender ni transferir el vehículo con deuda</li>
+                <li><strong>Restricción en VTV:</strong> Dificultades para realizar la Verificación Técnica Vehicular</li>
+              </ul>
+              <p>Si tenés deudas, ARBA suele ofrecer planes de pago con facilidades. Es recomendable regularizar cuanto antes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Las motos pagan patente en Buenos Aires?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              <p><strong>Sí, las motocicletas también pagan impuesto automotor</strong> en la Provincia de Buenos Aires. El cálculo se realiza con el mismo sistema de tramos progresivos que los automóviles.</p>
+              <p>La diferencia principal está en la <strong>valuación fiscal</strong>: las motos generalmente tienen valores fiscales más bajos, lo que resulta en patentes más económicas. Sin embargo, aplican las mismas reglas:</p>
+              <ul>
+                <li>Mismo sistema de 5 tramos progresivos</li>
+                <li>Opciones de pago anual o en cuotas</li>
+                <li>Descuentos por pago anticipado disponibles</li>
+                <li>Obligación de estar al día para transferir</li>
+              </ul>
+              <p>Podés usar esta calculadora seleccionando "Motocicleta" en el tipo de vehículo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            ¿Cuánto aumentó la patente del auto en 2026?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              <p>Los <strong>valores de patente 2026</strong> se ajustaron según las nuevas valuaciones fiscales establecidas por el DNRPA y los tramos actualizados por ARBA. El aumento varía según:</p>
+              <ul>
+                <li><strong>Revaluación fiscal:</strong> Las valuaciones se actualizan anualmente considerando inflación y mercado</li>
+                <li><strong>Ajuste de tramos:</strong> Los montos base y porcentajes de cada tramo se modifican por ley</li>
+                <li><strong>Antigüedad del vehículo:</strong> Los autos más nuevos suelen tener mayores incrementos en valuación</li>
+              </ul>
+              <p>Para conocer el <strong>impuesto exacto de tu vehículo en 2026</strong>, ingresá la valuación fiscal actualizada en nuestra calculadora y obtendrás el monto preciso al instante.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-cta">
+        <h3>¿Necesitás calcular tu patente ARBA ahora?</h3>
+        <p>Usá nuestro simulador de patente ARBA 2026 gratuito y obtené el resultado exacto en segundos</p>
+        <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Calcular patente ARBA</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <strong>Simulador de Patente ARBA 2026</strong> • Calculadora de impuesto automotor Buenos Aires
+        <br/>
+        Este <strong>simulador patente ARBA</strong> es una herramienta de estimación no oficial. Para información oficial, consultá <a href="https://www.arba.gob.ar" target="_blank" rel="noopener">ARBA</a>
+        <br/>
+        <span style="margin-top: 8px; display: inline-block;">*Ahorro estimado aproximado del 10% por pago anual anticipado según calendario ARBA</span>
+        <br/>
+        <br/>
+        Desarrollado por <a href="mailto:m.galmarino@gmail.com">Martín Galmarino 🤖</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    const tramos = [
+      { name: "Hasta $14.100.000", max: 14100000, base: 0, rate: 0.01, floor: 0 },
+      { name: "$14.100.001 – $18.700.000", max: 18700000, base: 141000, rate: 0.02, floor: 14100000 },
+      { name: "$18.700.001 – $26.100.000", max: 26100000, base: 233000, rate: 0.03, floor: 18700000 },
+      { name: "$26.100.001 – $53.900.000", max: 53900000, base: 455000, rate: 0.04, floor: 26100000 },
+      { name: "Más de $53.900.000", max: Infinity, base: 1567000, rate: 0.045, floor: 53900000 }
+    ];
+
+    const $ = (id) => document.getElementById(id);
+    const nf = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 });
+
+    function parseMoney(input) {
+      const cleaned = String(input || "").replace(/[^\d]/g, "");
+      if (!cleaned) return NaN;
+      return Number(cleaned);
+    }
+
+    function formatNumber(num) {
+      return new Intl.NumberFormat("es-AR").format(num);
+    }
+
+    function clamp(n, min, max){ return Math.min(Math.max(n, min), max); }
+
+    function factorPorAntiguedad(anioVehiculo) {
+      const anioRef = 2026;
+      const edad = Math.max(0, anioRef - anioVehiculo);
+      const factor = 1 - (0.05 * edad);
+      return { edad, factor: clamp(factor, 0.30, 1.00) };
+    }
+
+    function calcularImpuesto(valorFiscal) {
+      const tramo = tramos.find(t => valorFiscal <= t.max) || tramos[tramos.length - 1];
+      const excedente = Math.max(0, valorFiscal - tramo.floor);
+      const impuesto = tramo.base + tramo.rate * excedente;
+      return { tramo, excedente, impuesto };
+    }
+
+    function render({ valorFiscal, tipo, anio, calc, usadoFactor, valorBase, f }) {
+      $("tramoPill").innerHTML = `<i data-lucide="bar-chart-3"></i><span>Tramo: ${calc.tramo.name}</span>`;
+      $("anual").textContent = nf.format(calc.impuesto);
+      $("cuota").textContent = nf.format(calc.impuesto / 10);
+      $("ahorro").textContent = nf.format(calc.impuesto * 0.10);
+
+      const tipoIcon = tipo === 'auto' ? '🚗' : '🏍️';
+      const formula =
+        `${tipoIcon} Tipo: ${tipo.toUpperCase()} | Año: ${anio}\n` +
+        `💵 Valuación fiscal: ${nf.format(valorFiscal)}\n\n` +
+        `📊 Tramo aplicado: ${calc.tramo.name}\n` +
+        `📐 Base: ${nf.format(calc.tramo.base)}\n` +
+        `📈 Tasa: ${(calc.tramo.rate * 100).toFixed(2)}%\n` +
+        `➕ Excedente: ${nf.format(calc.excedente)}\n\n` +
+        `🧮 Cálculo: ${nf.format(calc.tramo.base)} + (${(calc.tramo.rate * 100).toFixed(2)}% × ${nf.format(calc.excedente)})\n\n` +
+        `💰 Impuesto anual: ${nf.format(calc.impuesto)}\n` +
+        `📅 Valor por cuota (10 cuotas): ${nf.format(calc.impuesto/10)}`;
+
+      $("formula").textContent = formula;
+
+      if (usadoFactor) {
+        $("factorInfo").innerHTML =
+          `<strong>Valor base ingresado:</strong> ${nf.format(valorBase)}<br/>` +
+          `<strong>Antigüedad:</strong> ${f.edad} año(s)<br/>` +
+          `<strong>Factor aplicado:</strong> ${(f.factor*100).toFixed(0)}%<br/>` +
+          `<strong>Valuación aproximada:</strong> ${nf.format(valorFiscal)}<br/><br/>` +
+          `<em>Esta es una estimación. La valuación real puede variar.</em>`;
+      } else {
+        $("factorInfo").innerHTML =
+          `No se aplicó factor por año.<br/>` +
+          `Se usó la valuación fiscal ingresada directamente.<br/><br/>` +
+          `<strong>Método de factor:</strong><br/>` +
+          `• Reduce 5% por cada año de antigüedad<br/>` +
+          `• Factor mínimo: 30%<br/>` +
+          `• Factor máximo: 100%`;
+      }
+
+      // Actualizar iconos de Lucide
+      lucide.createIcons();
+    }
+
+    function calcular() {
+      const tipo = $("tipo").value;
+      const anio = Number($("anio").value || 0);
+      const usarFactor = $("usarFactor").value === "si";
+      const valInput = parseMoney($("valuacion").value);
+
+      let valorFiscal = valInput;
+      let usadoFactor = false;
+      let valorBase = NaN;
+      let f = { edad: 0, factor: 1 };
+
+      if (usarFactor) {
+        valorBase = parseMoney($("valorBase").value);
+        if (!Number.isFinite(valorBase) || valorBase <= 0) {
+          alert("⚠️ Ingresá un 'Valor de Mercado Estimado' válido para usar el factor por año.");
+          return;
+        }
+        if (!Number.isFinite(anio) || anio < 1950 || anio > 2026) {
+          alert("⚠️ Ingresá un 'Año del vehículo' válido (1950–2026).");
+          return;
+        }
+        f = factorPorAntiguedad(anio);
+        valorFiscal = Math.round(valorBase * f.factor);
+        usadoFactor = true;
+      } else {
+        if (!Number.isFinite(valorFiscal) || valorFiscal <= 0) {
+          alert("⚠️ Ingresá una valuación fiscal válida.");
+          return;
+        }
+      }
+
+      const calc = calcularImpuesto(valorFiscal);
+      render({ valorFiscal, tipo, anio, calc, usadoFactor, valorBase, f });
+
+      window.scrollTo({ top: document.querySelector('.main-grid').offsetTop - 20, behavior: 'smooth' });
+    }
+
+    function reset() {
+      $("tipo").value = "auto";
+      $("anio").value = "2022";
+      $("valuacion").value = "";
+      $("usarFactor").value = "no";
+      $("valorBase").value = "";
+      $("valorBase").disabled = true;
+
+      $("tramoPill").innerHTML = '<i data-lucide="bar-chart-3"></i><span>Esperando cálculo...</span>';
+      $("anual").textContent = "$ —";
+      $("cuota").textContent = "$ —";
+      $("ahorro").textContent = "$ —";
+      $("formula").textContent = "Realizá un cálculo para ver el detalle completo de cómo se obtuvo el resultado.";
+      $("factorInfo").innerHTML =
+        `El factor de antigüedad se aplicará cuando realices un cálculo usando esta opción.<br/><br/>` +
+        `<strong>Método:</strong> Se reduce 5% por cada año de antigüedad desde 2026, con un mínimo del 30%.<br/><br/>` +
+        `<strong>Ejemplo:</strong> Un vehículo 2022 (4 años) tendría un factor de 0,80 (80%).`;
+
+      // Actualizar iconos de Lucide
+      lucide.createIcons();
+    }
+
+    $("btnCalc").addEventListener("click", calcular);
+    $("btnReset").addEventListener("click", reset);
+
+    $("usarFactor").addEventListener("change", (e) => {
+      const on = e.target.value === "si";
+      $("valorBase").disabled = !on;
+      if (on) {
+        const maybe = parseMoney($("valuacion").value);
+        if (Number.isFinite(maybe) && maybe > 0) {
+          $("valorBase").value = formatNumber(maybe);
+        }
+      }
+    });
+
+    ["valuacion","anio","valorBase"].forEach(id => {
+      $(id).addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter") calcular();
+      });
+    });
+
+    $("valuacion").addEventListener("input", (e) => {
+      const val = parseMoney(e.target.value);
+      if (Number.isFinite(val)) {
+        e.target.value = formatNumber(val);
+      }
+    });
+
+    $("valorBase").addEventListener("input", (e) => {
+      const val = parseMoney(e.target.value);
+      if (Number.isFinite(val)) {
+        e.target.value = formatNumber(val);
+      }
+    });
+
+    // FAQ Toggle Function
+    function toggleFaq(button) {
+      const faqItem = button.parentElement;
+      const isActive = faqItem.classList.contains('active');
+      
+      // Cerrar todos los FAQs
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Abrir el clickeado si no estaba activo
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    }
+
+    // Inicializar iconos de Lucide
+    lucide.createIcons();
+  </script>
+</body>
+</html>
