@@ -1,67 +1,60 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import { Calculator } from "@/components/Calculator";
 import { guides } from "@/lib/guides";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { SITE_NAME } from "@/lib/site";
+import {
+  HOME_DESCRIPTION,
+  HOME_TITLE,
+  JsonLd,
+  buildPageMetadata,
+  faqPageJsonLd,
+  webApplicationJsonLd,
+} from "@/lib/seo";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Calculadora de patente ARBA",
-  applicationCategory: "FinanceApplication",
-  operatingSystem: "Any",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "ARS" },
-  provider: {
-    "@type": "Person",
-    name: "Martín Galmarino",
-  },
-  url: SITE_URL,
-  description:
-    "Herramienta independiente para estimar el impuesto automotor de la Provincia de Buenos Aires.",
-};
-
-const faqLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "Esta calculadora es oficial de ARBA?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "No. Es un sitio independiente. El resultado es una estimación y no reemplaza la boleta de ARBA.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Qué número tengo que cargar?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "La valuación fiscal del vehículo, no el precio de mercado. Está en la boleta o en arba.gob.ar.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Sirve para motos?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Sí. Las motocicletas usan la misma escala de tramos. Cambiá el tipo de vehículo y cargá la valuación fiscal de la moto.",
-      },
-    },
+export const metadata: Metadata = buildPageMetadata({
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  path: "/",
+  absoluteTitle: true,
+  keywords: [
+    "simulador patente ARBA 2026",
+    "calculadora patente PBA",
+    "impuesto automotor Buenos Aires",
+    "patente auto ARBA",
+    "calcular patente 2026",
   ],
-};
+});
+
+const faqItems = [
+  {
+    question: `${SITE_NAME} es oficial?`,
+    answer:
+      "No. Es un sitio independiente. ARBA no respalda ni audita esta estimación.",
+  },
+  {
+    question: "Qué número cargo?",
+    answer:
+      "La valuación fiscal. Si no la tenés, hay una estimación por antigüedad, menos precisa.",
+  },
+  {
+    question: "Puedo pagar acá?",
+    answer:
+      "No. El pago se hace en ARBA o en recaudadores habilitados. Acá solo estimás el monto.",
+  },
+  {
+    question: "Sirve para motos?",
+    answer:
+      "Sí. Las motocicletas usan la misma escala de tramos. Cambiá el tipo de vehículo y cargá la valuación fiscal de la moto.",
+  },
+];
 
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-      />
+      <JsonLd data={webApplicationJsonLd()} />
+      <JsonLd data={faqPageJsonLd(faqItems)} />
 
       <section className="mx-auto grid max-w-7xl items-start gap-10 px-4 pb-16 pt-10 lg:grid-cols-2 lg:gap-16 lg:pt-14">
         <div className="max-w-xl pt-2">
@@ -139,24 +132,14 @@ export default function HomePage() {
           Preguntas <span className="text-accent">cortas.</span>
         </h2>
         <dl className="mt-8 max-w-3xl divide-y border-y border-line">
-          <div className="py-5">
-            <dt className="font-medium">{SITE_NAME} es oficial?</dt>
-            <dd className="mt-2 text-sm leading-relaxed text-muted">
-              No. Es un sitio independiente. ARBA no respalda ni audita esta estimación.
-            </dd>
-          </div>
-          <div className="py-5">
-            <dt className="font-medium">Qué número cargo?</dt>
-            <dd className="mt-2 text-sm leading-relaxed text-muted">
-              La valuación fiscal. Si no la tenés, hay una estimación por antigüedad, menos precisa.
-            </dd>
-          </div>
-          <div className="py-5">
-            <dt className="font-medium">Puedo pagar acá?</dt>
-            <dd className="mt-2 text-sm leading-relaxed text-muted">
-              No. El pago se hace en ARBA o en recaudadores habilitados. Acá solo estimás el monto.
-            </dd>
-          </div>
+          {faqItems.slice(0, 3).map((item) => (
+            <div key={item.question} className="py-5">
+              <dt className="font-medium">{item.question}</dt>
+              <dd className="mt-2 text-sm leading-relaxed text-muted">
+                {item.answer}
+              </dd>
+            </div>
+          ))}
         </dl>
       </section>
     </>

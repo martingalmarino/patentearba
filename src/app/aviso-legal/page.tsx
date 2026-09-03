@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
 import { AUTHOR_NAME, SITE_NAME } from "@/lib/site";
+import { JsonLd, breadcrumbJsonLd, buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Aviso legal",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Aviso legal del simulador de patente",
   description:
-    "Límites de la estimación, fuentes y responsabilidad sobre el impuesto automotor.",
-};
+    "Aviso legal de Patente PBA: límites de la estimación, fuentes oficiales y responsabilidad sobre el impuesto automotor de ARBA.",
+  path: "/aviso-legal/",
+});
 
 export default function LegalPage() {
   return (
     <article className="mx-auto max-w-[68ch] px-4 py-14">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Inicio", path: "/" },
+          { name: "Aviso legal", path: "/aviso-legal/" },
+        ])}
+      />
       <h1 className="title title-page">Aviso legal</h1>
       <p className="mt-5 leading-relaxed text-ink-soft">
         {SITE_NAME} publica una estimación del impuesto automotor de la Provincia de

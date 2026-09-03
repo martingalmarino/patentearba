@@ -4,7 +4,15 @@ import type { Metadata } from "next";
 import { CookieNotice } from "@/components/CookieNotice";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { PUBLISHER_ID, SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/site";
+import { PUBLISHER_ID, SITE_NAME, SITE_URL } from "@/lib/site";
+import {
+  DEFAULT_DESCRIPTION,
+  HOME_DESCRIPTION,
+  HOME_TITLE,
+  JsonLd,
+  organizationJsonLd,
+  websiteJsonLd,
+} from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,12 +28,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Calculadora de patente ARBA 2026 | Estimación independiente",
+    default: HOME_TITLE,
     template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Calculá una estimación del impuesto automotor en la Provincia de Buenos Aires con la escala 2026. Sitio independiente, no oficial.",
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
   authors: [{ name: "Martín Galmarino" }],
+  creator: "Martín Galmarino",
+  publisher: SITE_NAME,
+  category: "finance",
+  keywords: [
+    "patente ARBA",
+    "calculadora patente",
+    "simulador patente",
+    "impuesto automotor",
+    "Patente PBA",
+    "valuación fiscal",
+    "patente Buenos Aires",
+    "patente 2026",
+  ],
   verification: {
     google: "RMxkAlM6pTvfE11lDYIYqKuI57p20GtiBDqynQEbN9s",
   },
@@ -38,10 +59,31 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "Calculadora de patente ARBA 2026",
-    description: SITE_TAGLINE,
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: "es_AR",
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: SITE_URL,
   },
 };
 
@@ -52,11 +94,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="es"
+      lang="es-AR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col font-sans" suppressHydrationWarning>
+        <JsonLd data={websiteJsonLd()} />
+        <JsonLd data={organizationJsonLd()} />
         <a
           href="#contenido"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-card focus:px-3 focus:py-2"

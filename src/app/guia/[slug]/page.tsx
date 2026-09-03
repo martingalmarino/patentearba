@@ -4,7 +4,12 @@ import { notFound } from "next/navigation";
 import { LinkedText } from "@/components/LinkedText";
 import { RelatedGuides } from "@/components/RelatedGuides";
 import { getGuide, guides } from "@/lib/guides";
-import { AUTHOR_NAME, SITE_URL } from "@/lib/site";
+import { AUTHOR_NAME, SITE_NAME, SITE_URL } from "@/lib/site";
+import {
+  JsonLd,
+  breadcrumbJsonLd,
+  buildPageMetadata,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return guides.map((guide) => ({ slug: guide.slug }));
@@ -18,10 +23,21 @@ export function generateMetadata({
   return params.then(({ slug }) => {
     const guide = getGuide(slug);
     if (!guide) return {};
-    return {
-      title: guide.title,
+    return buildPageMetadata({
+      title: guide.seoTitle,
       description: guide.description,
-    };
+      path: `/guia/${guide.slug}/`,
+      type: "article",
+      publishedTime: `${guide.updated}T12:00:00-03:00`,
+      modifiedTime: `${guide.updated}T12:00:00-03:00`,
+      keywords: [
+        guide.seoTitle,
+        "patente ARBA",
+        "impuesto automotor",
+        "Buenos Aires",
+        SITE_NAME,
+      ],
+    });
   });
 }
 
@@ -34,32 +50,48 @@ export default async function GuidePage({
   const guide = getGuide(slug);
   if (!guide) notFound();
   const usedLinks = new Set<string>();
+  const pageUrl = `${SITE_URL}/guia/${guide.slug}/`;
 
-  const jsonLd = {
+  const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: guide.title,
     description: guide.description,
+    datePublished: guide.updated,
     dateModified: guide.updated,
-    author: { "@type": "Person", name: AUTHOR_NAME },
-    publisher: { "@type": "Person", name: AUTHOR_NAME },
-    mainEntityOfPage: `${SITE_URL}/guia/${guide.slug}/`,
+    inLanguage: "es-AR",
+    author: {
+      "@type": "Person",
+      name: AUTHOR_NAME,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": pageUrl,
+    },
+    url: pageUrl,
   };
 
   return (
     <article className="mx-auto max-w-[68ch] px-4 py-14">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <JsonLd data={articleLd} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Inicio", path: "/" },
+          { name: "Guías", path: "/guia/" },
+          { name: guide.title, path: `/guia/${guide.slug}/` },
+        ])}
       />
       <p className="text-sm text-muted">
         <Link href="/guia/" className="text-accent hover:text-accent-hover">
           Guías
         </Link>
       </p>
-      <h1 className="title title-page mt-3">
-        {guide.title}
-      </h1>
+      <h1 className="title title-page mt-3">{guide.title}</h1>
       <p className="mt-5 text-lg leading-relaxed text-muted">
         <LinkedText text={guide.intro} currentSlug={guide.slug} used={usedLinks} />
       </p>

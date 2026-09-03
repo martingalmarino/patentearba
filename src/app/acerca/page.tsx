@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
 import { AUTHOR_NAME, CONTACT_EMAIL, SITE_NAME, SITE_URL } from "@/lib/site";
+import { JsonLd, breadcrumbJsonLd, buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Acerca de este sitio",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Acerca de la calculadora de patente ARBA",
   description:
-    "Quién mantiene la calculadora de patente, por qué existe y por qué no es un sitio oficial de ARBA.",
-};
+    "Conocé Patente PBA: quién mantiene el simulador de patente ARBA 2026, por qué existe y por qué no es un sitio oficial.",
+  path: "/acerca/",
+  keywords: [
+    "acerca Patente PBA",
+    "calculadora patente independiente",
+    "simulador ARBA no oficial",
+  ],
+});
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: `Acerca de ${SITE_NAME}`,
+  description:
+    "Sitio independiente para estimar el impuesto automotor de la Provincia de Buenos Aires.",
   url: `${SITE_URL}/acerca/`,
   mainEntity: {
     "@type": "Person",
@@ -22,9 +31,12 @@ const jsonLd = {
 export default function AboutPage() {
   return (
     <article className="mx-auto max-w-[68ch] px-4 py-14">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <JsonLd data={jsonLd} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Inicio", path: "/" },
+          { name: "Acerca", path: "/acerca/" },
+        ])}
       />
       <h1 className="title title-page">
         <span className="block">Acerca de</span>

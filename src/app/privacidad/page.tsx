@@ -5,16 +5,24 @@ import {
   GOOGLE_PARTNER_DATA_URL,
   SITE_NAME,
 } from "@/lib/site";
+import { JsonLd, breadcrumbJsonLd, buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Política de privacidad",
   description:
-    "Cómo trata este sitio los datos, las cookies y la publicidad de Google AdSense.",
-};
+    "Política de privacidad de Patente PBA: tratamiento de datos, cookies y publicidad de Google AdSense en el simulador de patente ARBA.",
+  path: "/privacidad/",
+});
 
 export default function PrivacyPage() {
   return (
     <article className="mx-auto max-w-[68ch] px-4 py-14">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Inicio", path: "/" },
+          { name: "Privacidad", path: "/privacidad/" },
+        ])}
+      />
       <h1 className="title title-page">
         <span className="block">Política de</span>
         <span className="title-accent">privacidad.</span>

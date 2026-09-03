@@ -1,6 +1,7 @@
 export type Guide = {
   slug: string;
   title: string;
+  seoTitle: string;
   description: string;
   updated: string;
   intro: string;
@@ -12,8 +13,9 @@ export const guides: Guide[] = [
   {
     slug: "como-se-calcula",
     title: "Cómo se calcula la patente en la Provincia de Buenos Aires",
+    seoTitle: "Cómo se calcula la patente ARBA 2026",
     description:
-      "Explicación de la escala progresiva del impuesto automotor de ARBA y cómo leer cada tramo.",
+      "Explicación de la escala progresiva del impuesto automotor de ARBA 2026 y cómo leer cada tramo de la patente PBA.",
     updated: "2026-01-15",
     intro:
       "La patente no es un porcentaje único sobre el valor del auto. ARBA usa tramos: cuanto más alta es la valuación fiscal, más alta es la alícuota que se aplica sobre el excedente.",
@@ -50,8 +52,9 @@ export const guides: Guide[] = [
   {
     slug: "valuacion-fiscal",
     title: "Dónde consultar la valuación fiscal de tu vehículo",
+    seoTitle: "Valuación fiscal para calcular la patente ARBA",
     description:
-      "Pasos para encontrar la valuación fiscal que ARBA usa para liquidar la patente.",
+      "Pasos para encontrar la valuación fiscal 2026 que ARBA usa para liquidar la patente en Buenos Aires.",
     updated: "2026-01-15",
     intro:
       "Si cargás el precio de Mercado Libre o el valor de reventa, el resultado va a estar mal. La patente se calcula con la valuación fiscal del año.",
@@ -86,8 +89,9 @@ export const guides: Guide[] = [
   {
     slug: "como-pagar",
     title: "Cómo pagar la patente del auto en Buenos Aires",
+    seoTitle: "Cómo pagar la patente ARBA en Buenos Aires",
     description:
-      "Canales habituales para pagar el impuesto automotor de ARBA y qué conviene revisar antes de pagar.",
+      "Canales habituales para pagar el impuesto automotor de ARBA y qué conviene revisar antes de pagar la patente.",
     updated: "2026-01-15",
     intro:
       "Calcular el monto es el primer paso. El segundo es pagar en un canal que acredite a ARBA y conserve el comprobante. Los plazos de acreditación no son iguales en todos lados.",
@@ -116,8 +120,9 @@ export const guides: Guide[] = [
   {
     slug: "descuentos",
     title: "Descuentos y beneficios de la patente en ARBA",
+    seoTitle: "Descuentos de la patente ARBA 2026",
     description:
-      "Qué descuentos suele ofrecer ARBA y por qué esta calculadora no los aplica en automático.",
+      "Qué descuentos y beneficios suele ofrecer ARBA en la patente y por qué esta calculadora no los aplica en automático.",
     updated: "2026-01-15",
     intro:
       "El impuesto base no es siempre lo que termina pagando un contribuyente cumplidor. ARBA publica beneficios que cambian de un año a otro. Por eso la calculadora muestra el impuesto sin descuento, y un ahorro ilustrativo aparte.",
@@ -143,8 +148,9 @@ export const guides: Guide[] = [
   {
     slug: "patente-motos",
     title: "Patente de motos en la Provincia de Buenos Aires",
+    seoTitle: "Patente de motos ARBA en Buenos Aires",
     description:
-      "Las motocicletas también pagan impuesto automotor. Qué cambia y qué no respecto de los autos.",
+      "Las motocicletas también pagan impuesto automotor en PBA. Qué cambia y qué no respecto de los autos al calcular la patente.",
     updated: "2026-01-15",
     intro:
       "Las motos radicadas en la provincia pagan el mismo impuesto, con la misma escala de tramos. La diferencia está en la valuación fiscal, que suele ser más baja.",
@@ -173,8 +179,9 @@ export const guides: Guide[] = [
   {
     slug: "vencimientos",
     title: "Vencimientos y qué pasa si no pagás la patente",
+    seoTitle: "Vencimientos de la patente ARBA y mora",
     description:
-      "Cómo se organiza el calendario de ARBA y las consecuencias habituales de dejar el impuesto impago.",
+      "Cómo se organiza el calendario de vencimientos de ARBA y las consecuencias habituales de dejar la patente impaga.",
     updated: "2026-01-15",
     intro:
       "Las fechas exactas las publica ARBA cada año. Acá explicamos la lógica del calendario y el costo de no pagar, sin inventar un cronograma que puede cambiar.",
