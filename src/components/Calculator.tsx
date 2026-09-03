@@ -161,7 +161,7 @@ export function Calculator() {
               placeholder="16.000.000"
               value={valuacion}
               onChange={(event) => onMoneyInput(event.target.value, setValuacion)}
-              className="field-input pl-8"
+              className="field-input field-input-money"
               disabled={useFactor}
             />
           </div>
@@ -197,7 +197,7 @@ export function Calculator() {
                   value={valorBase}
                   disabled={!useFactor}
                   onChange={(event) => onMoneyInput(event.target.value, setValorBase)}
-                  className="field-input pl-8"
+                  className="field-input field-input-money"
                 />
               </div>
             </Field>
