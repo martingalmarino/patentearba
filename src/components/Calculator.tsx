@@ -35,10 +35,24 @@ type ResultState = {
   detail: string;
 };
 
-export function Calculator() {
+type CalculatorProps = {
+  defaultYear?: string;
+  heading?: string;
+  submitLabel?: string;
+  footnote?: string;
+  contextLabel?: string;
+};
+
+export function Calculator({
+  defaultYear = "2022",
+  heading,
+  submitLabel = "Calcular patente",
+  footnote = "Estimación del impuesto base. ARBA puede aplicar descuentos, recargos o una valuación distinta.",
+  contextLabel,
+}: CalculatorProps = {}) {
   const reduceMotion = useReducedMotion();
   const [type, setType] = useState<VehicleType>("auto");
-  const [year, setYear] = useState("2022");
+  const [year, setYear] = useState(defaultYear);
   const [valuacion, setValuacion] = useState("");
   const [useFactor, setUseFactor] = useState(false);
   const [valorBase, setValorBase] = useState("");
@@ -109,7 +123,7 @@ export function Calculator() {
 
   function handleReset() {
     setType("auto");
-    setYear("2022");
+    setYear(defaultYear);
     setValuacion("");
     setUseFactor(false);
     setValorBase("");
@@ -119,6 +133,17 @@ export function Calculator() {
 
   return (
     <div className="calculator-panel rounded-[8px] bg-card p-5 md:p-7">
+      {heading || contextLabel ? (
+        <div className="mb-5">
+          {heading ? <h2 className="heading">{heading}</h2> : null}
+          {contextLabel ? (
+            <p className="mt-2 text-sm text-muted">
+              Estimación orientativa para {contextLabel}. Usá la valuación fiscal,
+              no el precio de lista.
+            </p>
+          ) : null}
+        </div>
+      ) : null}
       <form onSubmit={handleSubmit} noValidate className="grid gap-5">
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label="Tipo de vehículo" htmlFor="tipo">
@@ -210,7 +235,7 @@ export function Calculator() {
             className="inline-flex h-11 items-center justify-center gap-2 rounded-[8px] bg-accent px-5 text-sm font-semibold text-white hover:bg-accent-hover active:scale-[0.98]"
           >
             <CalculatorIcon size={18} />
-            Calcular patente
+            {submitLabel}
           </button>
           <button
             type="button"
@@ -224,8 +249,7 @@ export function Calculator() {
 
       <p className="mt-5 flex gap-2 text-sm leading-relaxed text-muted">
         <Info size={16} className="mt-0.5 shrink-0" />
-        Estimación del impuesto base. ARBA puede aplicar descuentos, recargos o
-        una valuación distinta.
+        {footnote}
       </p>
 
       <div className="mt-6" aria-live="polite">

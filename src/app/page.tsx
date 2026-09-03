@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import { Calculator } from "@/components/Calculator";
+import { PopularModelPills } from "@/components/PopularModelPills";
 import { guides } from "@/lib/guides";
 import { SITE_NAME } from "@/lib/site";
 import {
@@ -87,6 +88,7 @@ export default function HomePage() {
                 ),
               )}
             </ul>
+            <PopularModelPills />
           </div>
         </div>
         <Calculator />

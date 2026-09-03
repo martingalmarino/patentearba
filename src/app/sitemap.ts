@@ -1,11 +1,13 @@
 import type { MetadataRoute } from "next";
 import { guides } from "@/lib/guides";
 import { SITE_URL } from "@/lib/site";
+import { getAllVehicles } from "@/lib/vehicles";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date("2026-09-03");
+  const vehicles = getAllVehicles();
 
   return [
     {
@@ -14,6 +16,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
+    {
+      url: `${SITE_URL}/modelos/`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    ...vehicles.map((vehicle) => ({
+      url: `${SITE_URL}/modelos/${vehicle.slug}/`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    })),
     {
       url: `${SITE_URL}/guia/`,
       lastModified: now,

@@ -1,0 +1,671 @@
+{
+  "dataset": {
+    "name": "Autos más vendidos de Argentina 2025-2026 para PatentearBA",
+    "generated_at": "2026-09-03",
+    "currency": "ARS",
+    "market": "Argentina",
+    "tax_jurisdiction": "Provincia de Buenos Aires - ARBA",
+    "selection_method": "Unión editorial de los 10 modelos más patentados durante 2025 y los modelos de mayor relevancia en el acumulado enero-agosto de 2026.",
+    "price_definition": "Precio sugerido de lista 0 km de la gama vigente. No equivale a la valuación fiscal de ARBA ni necesariamente al precio final de concesionario.",
+    "implementation_note": "Usar price_reference únicamente como referencia editorial. Para estimar el impuesto, solicitar año y versión y aplicar la valuación fiscal y la escala ARBA vigente.",
+    "arba_2026": {
+      "new_vehicle_taxable_base_factor": 1,
+      "used_vehicle_taxable_base_factor": 0.95,
+      "annual_installments": 10,
+      "educational_fund_rate": 0.015,
+      "general_contribution_rate": 0.1,
+      "brackets_passenger_cars": [
+        {
+          "from": 0,
+          "to": 14100000,
+          "fixed_fee": 0,
+          "marginal_rate": 0.01
+        },
+        {
+          "from": 14100000,
+          "to": 18700000,
+          "fixed_fee": 141000,
+          "marginal_rate": 0.02
+        },
+        {
+          "from": 18700000,
+          "to": 26100000,
+          "fixed_fee": 233000,
+          "marginal_rate": 0.03
+        },
+        {
+          "from": 26100000,
+          "to": 53900000,
+          "fixed_fee": 455000,
+          "marginal_rate": 0.04
+        },
+        {
+          "from": 53900000,
+          "to": null,
+          "fixed_fee": 1567000,
+          "marginal_rate": 0.045
+        }
+      ],
+      "warning": "Las pick-ups pueden tributar bajo reglas diferentes según su clasificación y afectación a actividades económicas. No calcularlas automáticamente como automóviles sin validar el inciso aplicable."
+    }
+  },
+  "vehicles": [
+    {
+      "id": "toyota-hilux",
+      "brand": "Toyota",
+      "model": "Hilux",
+      "slug": "toyota-hilux-patente-arba",
+      "body_type": "Pick-up mediana",
+      "origin": "Argentina",
+      "seo_title": "Patente Toyota Hilux 2026: precio y cálculo ARBA",
+      "meta_description": "Consultá el precio de la Toyota Hilux, sus datos técnicos y estimá cuánto puede pagar de patente ARBA en Provincia de Buenos Aires.",
+      "short_description": "La Toyota Hilux es la pick-up de referencia del mercado argentino y fue el vehículo más patentado de 2025. Su amplia gama combina versiones de trabajo y alternativas 4x4 de alto equipamiento.",
+      "price_reference": {
+        "from": 40589000,
+        "to": 89327000,
+        "entry_version": "DX 4x2 Cabina y Chasis MT",
+        "price_date": "2026-09-02",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "2.4 y 2.8 turbodiésel",
+        "displacement_cc": "2393-2755",
+        "power_cv": "150-224",
+        "torque_nm": "400-550",
+        "fuel": "Diésel",
+        "transmission": "Manual o automática de 6 marchas",
+        "traction": "4x2 o 4x4",
+        "length_mm": "5075-5325",
+        "trunk_l": null,
+        "cargo_capacity_kg": "865-1060",
+        "airbags": 7
+      },
+      "sales": {
+        "rank_2025": 1,
+        "registrations_2025": 30768,
+        "rank_2026_ytd": 1,
+        "registrations_2026_through_august": 21116
+      },
+      "cta": "Calcular patente ARBA de Toyota Hilux"
+    },
+    {
+      "id": "fiat-cronos",
+      "brand": "Fiat",
+      "model": "Cronos",
+      "slug": "fiat-cronos-patente-arba",
+      "body_type": "Sedán compacto",
+      "origin": "Argentina",
+      "seo_title": "Patente Fiat Cronos 2026: precio y cálculo ARBA",
+      "meta_description": "Conocé el precio y la ficha técnica del Fiat Cronos y estimá su patente ARBA en la Provincia de Buenos Aires.",
+      "short_description": "El Fiat Cronos es uno de los sedanes más elegidos del país por su fabricación nacional, gran baúl y costos de uso competitivos. Mantiene una oferta simple con motor 1.3 y cajas manual o CVT.",
+      "price_reference": {
+        "from": 35100000,
+        "to": 43520000,
+        "entry_version": "Like 1.3 MT",
+        "price_date": "2026-09-03",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.3 Firefly nafta",
+        "displacement_cc": 1332,
+        "power_cv": 99,
+        "torque_nm": 127,
+        "fuel": "Nafta",
+        "transmission": "Manual de 5 marchas o CVT",
+        "traction": "Delantera",
+        "length_mm": 4364,
+        "trunk_l": 525,
+        "cargo_capacity_kg": null,
+        "airbags": "2-4 según versión"
+      },
+      "sales": {
+        "rank_2025": 3,
+        "registrations_2025": 29905,
+        "rank_2026_ytd": 2,
+        "registrations_2026_through_august": 15894
+      },
+      "cta": "Calcular patente ARBA de Fiat Cronos"
+    },
+    {
+      "id": "ford-ranger",
+      "brand": "Ford",
+      "model": "Ranger",
+      "slug": "ford-ranger-patente-arba",
+      "body_type": "Pick-up mediana",
+      "origin": "Argentina",
+      "seo_title": "Patente Ford Ranger 2026: precio y cálculo ARBA",
+      "meta_description": "Revisá precios y ficha técnica de Ford Ranger y obtené una estimación orientativa de patente ARBA para Buenos Aires.",
+      "short_description": "La Ford Ranger se consolidó como la segunda pick-up más vendida del país. Se produce en General Pacheco y ofrece motores turbodiésel de cuatro cilindros y V6, con versiones 4x2 y 4x4.",
+      "price_reference": {
+        "from": 45701100,
+        "to": 83355090,
+        "entry_version": "XL Cabina Simple 4x2",
+        "price_date": "2026-08-26",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "2.0 turbodiésel, 2.0 biturbodiésel y 3.0 V6 turbodiésel",
+        "displacement_cc": "1996-2993",
+        "power_cv": "170-250",
+        "torque_nm": "405-600",
+        "fuel": "Diésel",
+        "transmission": "Manual de 6 o automática de 6/10 marchas",
+        "traction": "4x2 o 4x4",
+        "length_mm": 5370,
+        "trunk_l": null,
+        "cargo_capacity_kg": "aprox. 987-1010",
+        "airbags": 7
+      },
+      "sales": {
+        "rank_2025": 5,
+        "registrations_2025": 24976,
+        "rank_2026_ytd": 3,
+        "registrations_2026_through_august": 14052
+      },
+      "cta": "Calcular patente ARBA de Ford Ranger"
+    },
+    {
+      "id": "peugeot-208",
+      "brand": "Peugeot",
+      "model": "208",
+      "slug": "peugeot-208-patente-arba",
+      "body_type": "Hatchback compacto",
+      "origin": "Argentina",
+      "seo_title": "Patente Peugeot 208 2026: precio y cálculo ARBA",
+      "meta_description": "Consultá cuánto cuesta un Peugeot 208, su ficha técnica y una estimación de patente ARBA para Provincia de Buenos Aires.",
+      "short_description": "El Peugeot 208 es uno de los hatchbacks de mayor volumen en Argentina. Fabricado en El Palomar, combina diseño distintivo con motores 1.6 aspirado y 1.0 turbo T200.",
+      "price_reference": {
+        "from": 34960000,
+        "to": 48120000,
+        "entry_version": "Active 1.6 MT",
+        "price_date": "2026-09-02",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.6 nafta o 1.0 turbo T200",
+        "displacement_cc": "999-1587",
+        "power_cv": "115-120",
+        "torque_nm": "150-200",
+        "fuel": "Nafta",
+        "transmission": "Manual de 5, automática de 6 o CVT",
+        "traction": "Delantera",
+        "length_mm": 4055,
+        "trunk_l": 311,
+        "cargo_capacity_kg": null,
+        "airbags": "4-6 según versión"
+      },
+      "sales": {
+        "rank_2025": 4,
+        "registrations_2025": 29092,
+        "rank_2026_ytd": 4,
+        "registrations_2026_through_august": 13975
+      },
+      "cta": "Calcular patente ARBA de Peugeot 208"
+    },
+    {
+      "id": "ford-territory",
+      "brand": "Ford",
+      "model": "Territory",
+      "slug": "ford-territory-patente-arba",
+      "body_type": "SUV mediano",
+      "origin": "China",
+      "seo_title": "Patente Ford Territory 2026: precio y cálculo ARBA",
+      "meta_description": "Conocé precios y características de Ford Territory y calculá una estimación de su patente ARBA en Buenos Aires.",
+      "short_description": "La Ford Territory se convirtió en uno de los SUV más patentados de 2026. Sobresale por espacio, tecnología y una gama que suma versiones nafteras e híbridas.",
+      "price_reference": {
+        "from": 48861930,
+        "to": 60850000,
+        "entry_version": "SEL 1.8 EcoBoost",
+        "price_date": "2026-08-31",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.8 EcoBoost turbo o 1.5 GTDI híbrido",
+        "displacement_cc": "1498-1764",
+        "power_cv": "185-245",
+        "torque_nm": "320-545",
+        "fuel": "Nafta o híbrido",
+        "transmission": "Automática DCT de 7 o automática 2DHT",
+        "traction": "Delantera",
+        "length_mm": "4630-4685",
+        "trunk_l": 448,
+        "cargo_capacity_kg": null,
+        "airbags": 6
+      },
+      "sales": {
+        "rank_2025": null,
+        "registrations_2025": null,
+        "rank_2026_ytd": 5,
+        "registrations_2026_through_august": 13830
+      },
+      "cta": "Calcular patente ARBA de Ford Territory"
+    },
+    {
+      "id": "volkswagen-amarok",
+      "brand": "Volkswagen",
+      "model": "Amarok",
+      "slug": "volkswagen-amarok-patente-arba",
+      "body_type": "Pick-up mediana",
+      "origin": "Argentina",
+      "seo_title": "Patente Volkswagen Amarok 2026: precio y cálculo ARBA",
+      "meta_description": "Mirá el precio y ficha técnica de Volkswagen Amarok y estimá su patente ARBA en Provincia de Buenos Aires.",
+      "short_description": "La Volkswagen Amarok continúa entre las pick-ups preferidas de Argentina. Su gama incluye motores 2.0 turbodiésel y un potente V6 3.0, con configuraciones 4x2 y 4x4.",
+      "price_reference": {
+        "from": 51929800,
+        "to": 93430750,
+        "entry_version": "2.0 TDI Trendline 4x2 MT",
+        "price_date": "2026-07-21",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "2.0 TDI/Bi-TDI y 3.0 V6 TDI",
+        "displacement_cc": "1968-2967",
+        "power_cv": "140-258",
+        "torque_nm": "340-580",
+        "fuel": "Diésel",
+        "transmission": "Manual de 6 o automática de 8 marchas",
+        "traction": "4x2 o 4x4",
+        "length_mm": 5350,
+        "trunk_l": null,
+        "cargo_capacity_kg": "aprox. 916-1046",
+        "airbags": 6
+      },
+      "sales": {
+        "rank_2025": 6,
+        "registrations_2025": 23612,
+        "rank_2026_ytd": 6,
+        "registrations_2026_through_august": 10728
+      },
+      "cta": "Calcular patente ARBA de Volkswagen Amarok"
+    },
+    {
+      "id": "volkswagen-tera",
+      "brand": "Volkswagen",
+      "model": "Tera",
+      "slug": "volkswagen-tera-patente-arba",
+      "body_type": "Crossover compacto",
+      "origin": "Brasil",
+      "seo_title": "Patente Volkswagen Tera 2026: precio y cálculo ARBA",
+      "meta_description": "Consultá precio, versiones y ficha técnica del Volkswagen Tera y estimá cuánto pagaría de patente ARBA.",
+      "short_description": "El Volkswagen Tera es una de las novedades de mayor crecimiento en 2026. Este crossover compacto ofrece motor 1.6 manual o 1.0 TSI automático y seis airbags en toda la gama.",
+      "price_reference": {
+        "from": 37865250,
+        "to": 48159550,
+        "entry_version": "1.6 MSI Trend MT",
+        "price_date": "2026-08-07",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.6 MSI o 1.0 TSI turbo",
+        "displacement_cc": "999-1598",
+        "power_cv": "101-110",
+        "torque_nm": "155-170",
+        "fuel": "Nafta",
+        "transmission": "Manual de 5 o automática Tiptronic de 6",
+        "traction": "Delantera",
+        "length_mm": 4151,
+        "trunk_l": 350,
+        "cargo_capacity_kg": null,
+        "airbags": 6
+      },
+      "sales": {
+        "rank_2025": null,
+        "registrations_2025": null,
+        "rank_2026_ytd": 7,
+        "registrations_2026_through_august": 10658
+      },
+      "cta": "Calcular patente ARBA de Volkswagen Tera"
+    },
+    {
+      "id": "chevrolet-tracker",
+      "brand": "Chevrolet",
+      "model": "Tracker",
+      "slug": "chevrolet-tracker-patente-arba",
+      "body_type": "SUV compacto",
+      "origin": "Argentina",
+      "seo_title": "Patente Chevrolet Tracker 2026: precio y cálculo ARBA",
+      "meta_description": "Conocé precio y ficha técnica de Chevrolet Tracker y obtené una estimación de patente ARBA en Buenos Aires.",
+      "short_description": "La Chevrolet Tracker es uno de los SUV compactos de producción nacional más vendidos. Toda la gama utiliza un motor 1.2 turbo con caja automática y seis airbags.",
+      "price_reference": {
+        "from": 40540900,
+        "to": 50540900,
+        "entry_version": "1.2T LT AT",
+        "price_date": "2026-08-26",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.2 turbo nafta",
+        "displacement_cc": 1199,
+        "power_cv": 132,
+        "torque_nm": 190,
+        "fuel": "Nafta",
+        "transmission": "Automática de 6 marchas",
+        "traction": "Delantera",
+        "length_mm": 4304,
+        "trunk_l": 393,
+        "cargo_capacity_kg": null,
+        "airbags": 6
+      },
+      "sales": {
+        "rank_2025": 9,
+        "registrations_2025": 17647,
+        "rank_2026_ytd": 8,
+        "registrations_2026_through_august": 9619
+      },
+      "cta": "Calcular patente ARBA de Chevrolet Tracker"
+    },
+    {
+      "id": "chevrolet-onix",
+      "brand": "Chevrolet",
+      "model": "Onix",
+      "slug": "chevrolet-onix-patente-arba",
+      "body_type": "Hatchback compacto",
+      "origin": "Brasil",
+      "seo_title": "Patente Chevrolet Onix 2026: precio y cálculo ARBA",
+      "meta_description": "Consultá el precio del Chevrolet Onix, su ficha técnica y una estimación de patente ARBA para Provincia de Buenos Aires.",
+      "short_description": "El Chevrolet Onix sigue entre los hatchbacks de mayor volumen del mercado. Combina motorización turbo eficiente con una gama accesible orientada al uso urbano y familiar.",
+      "price_reference": {
+        "from": 32990000,
+        "to": 42990000,
+        "entry_version": "1.0T LT MT",
+        "price_date": "2026-08-26",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.0 turbo nafta",
+        "displacement_cc": 999,
+        "power_cv": 116,
+        "torque_nm": 165,
+        "fuel": "Nafta",
+        "transmission": "Manual de 6 o automática de 6 marchas",
+        "traction": "Delantera",
+        "length_mm": 4164,
+        "trunk_l": 280,
+        "cargo_capacity_kg": null,
+        "airbags": "4-6 según versión"
+      },
+      "sales": {
+        "rank_2025": null,
+        "registrations_2025": null,
+        "rank_2026_ytd": 9,
+        "registrations_2026_through_august": 9279
+      },
+      "cta": "Calcular patente ARBA de Chevrolet Onix"
+    },
+    {
+      "id": "toyota-yaris",
+      "brand": "Toyota",
+      "model": "Yaris",
+      "slug": "toyota-yaris-patente-arba",
+      "body_type": "Hatchback compacto",
+      "origin": "Brasil",
+      "seo_title": "Patente Toyota Yaris 2026: precio y cálculo ARBA",
+      "meta_description": "Revisá precios y ficha técnica del Toyota Yaris y estimá su patente ARBA en Buenos Aires.",
+      "short_description": "El Toyota Yaris fue el segundo modelo más patentado de 2025 y sigue fuerte en 2026. Destaca por confiabilidad, bajo consumo y una oferta hatchback con versiones híbridas en la gama.",
+      "price_reference": {
+        "from": 36850000,
+        "to": 49890000,
+        "entry_version": "XS 1.5 CVT",
+        "price_date": "2026-09-01",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.5 nafta o híbrido",
+        "displacement_cc": 1496,
+        "power_cv": "107-116",
+        "torque_nm": "140-141",
+        "fuel": "Nafta o híbrido",
+        "transmission": "CVT",
+        "traction": "Delantera",
+        "length_mm": 3940,
+        "trunk_l": 286,
+        "cargo_capacity_kg": null,
+        "airbags": 7
+      },
+      "sales": {
+        "rank_2025": 2,
+        "registrations_2025": 30050,
+        "rank_2026_ytd": 10,
+        "registrations_2026_through_august": 8310
+      },
+      "cta": "Calcular patente ARBA de Toyota Yaris"
+    },
+    {
+      "id": "peugeot-2008",
+      "brand": "Peugeot",
+      "model": "2008",
+      "slug": "peugeot-2008-patente-arba",
+      "body_type": "SUV compacto",
+      "origin": "Argentina",
+      "seo_title": "Patente Peugeot 2008 2026: precio y cálculo ARBA",
+      "meta_description": "Conocé precio y ficha técnica del Peugeot 2008 y calculá una estimación de patente ARBA.",
+      "short_description": "El Peugeot 2008 es el SUV compacto fabricado en El Palomar que acompaña el volumen del 208. Ofrece estilo distintivo, motor turbo y una posición de manejo elevada.",
+      "price_reference": {
+        "from": 42980000,
+        "to": 53980000,
+        "entry_version": "Active 1.0 T200",
+        "price_date": "2026-09-02",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.0 turbo T200",
+        "displacement_cc": 999,
+        "power_cv": 120,
+        "torque_nm": 200,
+        "fuel": "Nafta",
+        "transmission": "Automática CVT",
+        "traction": "Delantera",
+        "length_mm": 4300,
+        "trunk_l": 405,
+        "cargo_capacity_kg": null,
+        "airbags": 6
+      },
+      "sales": {
+        "rank_2025": null,
+        "registrations_2025": null,
+        "rank_2026_ytd": 11,
+        "registrations_2026_through_august": 7867
+      },
+      "cta": "Calcular patente ARBA de Peugeot 2008"
+    },
+    {
+      "id": "toyota-corolla-cross",
+      "brand": "Toyota",
+      "model": "Corolla Cross",
+      "slug": "toyota-corolla-cross-patente-arba",
+      "body_type": "SUV mediano",
+      "origin": "Brasil",
+      "seo_title": "Patente Toyota Corolla Cross 2026: precio y cálculo ARBA",
+      "meta_description": "Consultá precios del Toyota Corolla Cross, su ficha técnica y una estimación de patente ARBA en PBA.",
+      "short_description": "El Toyota Corolla Cross combina la base del Corolla con carrocería SUV. Es una de las opciones híbridas más demandadas del segmento y mantiene alto volumen de patentamientos.",
+      "price_reference": {
+        "from": 48990000,
+        "to": 62990000,
+        "entry_version": "XEi 2.0 CVT",
+        "price_date": "2026-09-01",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "2.0 nafta o híbrido",
+        "displacement_cc": 1987,
+        "power_cv": "170-196",
+        "torque_nm": "190-202",
+        "fuel": "Nafta o híbrido",
+        "transmission": "CVT",
+        "traction": "Delantera",
+        "length_mm": 4460,
+        "trunk_l": 440,
+        "cargo_capacity_kg": null,
+        "airbags": 7
+      },
+      "sales": {
+        "rank_2025": 8,
+        "registrations_2025": 18500,
+        "rank_2026_ytd": 12,
+        "registrations_2026_through_august": 7503
+      },
+      "cta": "Calcular patente ARBA de Toyota Corolla Cross"
+    },
+    {
+      "id": "toyota-yaris-cross",
+      "brand": "Toyota",
+      "model": "Yaris Cross",
+      "slug": "toyota-yaris-cross-patente-arba",
+      "body_type": "SUV compacto",
+      "origin": "Brasil",
+      "seo_title": "Patente Toyota Yaris Cross 2026: precio y cálculo ARBA",
+      "meta_description": "Mirá el precio del Toyota Yaris Cross y estimá su patente ARBA en la Provincia de Buenos Aires.",
+      "short_description": "El Toyota Yaris Cross es el SUV compacto basado en el Yaris. Creció con fuerza en 2026 entre quienes buscan altura de manejo y la red de postventa Toyota.",
+      "price_reference": {
+        "from": 41990000,
+        "to": 54990000,
+        "entry_version": "XLS 1.5 CVT",
+        "price_date": "2026-09-01",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.5 nafta o híbrido",
+        "displacement_cc": 1496,
+        "power_cv": "107-116",
+        "torque_nm": "140-141",
+        "fuel": "Nafta o híbrido",
+        "transmission": "CVT",
+        "traction": "Delantera",
+        "length_mm": 4310,
+        "trunk_l": 390,
+        "cargo_capacity_kg": null,
+        "airbags": 7
+      },
+      "sales": {
+        "rank_2025": null,
+        "registrations_2025": null,
+        "rank_2026_ytd": 13,
+        "registrations_2026_through_august": 7474
+      },
+      "cta": "Calcular patente ARBA de Toyota Yaris Cross"
+    },
+    {
+      "id": "volkswagen-polo",
+      "brand": "Volkswagen",
+      "model": "Polo",
+      "slug": "volkswagen-polo-patente-arba",
+      "body_type": "Hatchback compacto",
+      "origin": "Brasil",
+      "seo_title": "Patente Volkswagen Polo 2026: precio y cálculo ARBA",
+      "meta_description": "Conocé precio y ficha técnica del Volkswagen Polo y obtené una estimación de patente ARBA.",
+      "short_description": "El Volkswagen Polo se mantiene entre los hatchbacks más patentados. Ofrece motorizaciones MSI y TSI, con una imagen de producto sólida en el segmento B.",
+      "price_reference": {
+        "from": 35590000,
+        "to": 46590000,
+        "entry_version": "1.6 MSI Trendline MT",
+        "price_date": "2026-08-07",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.6 MSI o 1.0 TSI",
+        "displacement_cc": "999-1598",
+        "power_cv": "101-116",
+        "torque_nm": "155-200",
+        "fuel": "Nafta",
+        "transmission": "Manual de 5 o automática de 6 marchas",
+        "traction": "Delantera",
+        "length_mm": 4053,
+        "trunk_l": 300,
+        "cargo_capacity_kg": null,
+        "airbags": 6
+      },
+      "sales": {
+        "rank_2025": 7,
+        "registrations_2025": 21000,
+        "rank_2026_ytd": 14,
+        "registrations_2026_through_august": 7217
+      },
+      "cta": "Calcular patente ARBA de Volkswagen Polo"
+    },
+    {
+      "id": "volkswagen-taos",
+      "brand": "Volkswagen",
+      "model": "Taos",
+      "slug": "volkswagen-taos-patente-arba",
+      "body_type": "SUV mediano",
+      "origin": "Argentina",
+      "seo_title": "Patente Volkswagen Taos 2026: precio y cálculo ARBA",
+      "meta_description": "Consultá precios de Volkswagen Taos, ficha técnica y estimación de patente ARBA en Buenos Aires.",
+      "short_description": "La Volkswagen Taos se produce en General Pacheco y cierra el top de SUV medianos más patentados. Combina motor turbo, caja DSG y un paquete tecnológico completo.",
+      "price_reference": {
+        "from": 52990000,
+        "to": 64990000,
+        "entry_version": "Comfortline 250 TSI",
+        "price_date": "2026-08-07",
+        "type": "precio sugerido de lista"
+      },
+      "technical_specs": {
+        "engine": "1.4 TSI turbo",
+        "displacement_cc": 1395,
+        "power_cv": 150,
+        "torque_nm": 250,
+        "fuel": "Nafta",
+        "transmission": "Automática DSG de 6 marchas",
+        "traction": "Delantera",
+        "length_mm": 4466,
+        "trunk_l": 498,
+        "cargo_capacity_kg": null,
+        "airbags": 6
+      },
+      "sales": {
+        "rank_2025": 10,
+        "registrations_2025": 16000,
+        "rank_2026_ytd": 15,
+        "registrations_2026_through_august": 6888
+      },
+      "cta": "Calcular patente ARBA de Volkswagen Taos"
+    }
+  ],
+  "sources": [
+    {
+      "name": "ACARA/SIOMAA - Informe diciembre 2025",
+      "url": "https://api.acara.org.ar/storage/documents/bd41e97b-7974-4ae1-a35f-badf79dceeb3.pdf",
+      "used_for": "ranking anual 2025"
+    },
+    {
+      "name": "ACARA patentamientos 2026",
+      "url": "https://www.acara.org.ar",
+      "used_for": "ranking acumulado enero-agosto 2026"
+    },
+    {
+      "name": "ARBA",
+      "url": "https://www.arba.gob.ar",
+      "used_for": "escala impuesto automotor"
+    },
+    {
+      "name": "DNRPA",
+      "url": "https://www.dnrpa.gov.ar",
+      "used_for": "contexto de valuación fiscal"
+    },
+    {
+      "name": "Toyota Argentina",
+      "url": "https://www.toyota.com.ar",
+      "used_for": "precios de lista Hilux, Yaris, Corolla Cross, Yaris Cross"
+    },
+    {
+      "name": "Fiat Argentina",
+      "url": "https://www.fiat.com.ar",
+      "used_for": "precios de lista Cronos"
+    },
+    {
+      "name": "Ford Argentina",
+      "url": "https://www.ford.com.ar",
+      "used_for": "precios de lista Ranger y Territory"
+    },
+    {
+      "name": "Stellantis / Peugeot Argentina",
+      "url": "https://www.peugeot.com.ar",
+      "used_for": "precios de lista 208 y 2008"
+    },
+    {
+      "name": "Volkswagen Argentina",
+      "url": "https://www.volkswagen.com.ar",
+      "used_for": "precios de lista Amarok, Tera, Polo y Taos"
+    }
+  ]
+}

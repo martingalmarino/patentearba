@@ -14,6 +14,7 @@ export const SITE_URL =
 
 export const navItems = [
   { href: "/", label: "Calculadora" },
+  { href: "/modelos/", label: "Modelos" },
   { href: "/guia/", label: "Guías" },
   { href: "/acerca/", label: "Acerca" },
   { href: "/contacto/", label: "Contacto" },
