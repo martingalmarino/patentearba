@@ -10,7 +10,7 @@ export const YEAR = 2026;
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://localhost:3000";
+  "https://www.patentearba.com";
 
 export const navItems = [
   { href: "/", label: "Calculadora" },

@@ -7,4 +7,4 @@ npm install
 npm run dev
 ```
 
-Para publicar, `npm run build` genera la carpeta `out/` (export estático). Definí `NEXT_PUBLIC_SITE_URL` con el dominio real antes de generar sitemap y etiquetas Open Graph.
+Para publicar, `npm run build` genera la carpeta `out/` (export estático). La URL canónica del sitio es `https://www.patentearba.com`. Podés overridearla con `NEXT_PUBLIC_SITE_URL`.
