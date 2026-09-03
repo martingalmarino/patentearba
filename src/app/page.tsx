@@ -142,7 +142,7 @@ export default function HomePage() {
           <div className="py-5">
             <dt className="font-medium">{SITE_NAME} es oficial?</dt>
             <dd className="mt-2 text-sm leading-relaxed text-muted">
-              No. Lo mantiene Martín Galmarino. ARBA no respalda ni audita esta estimación.
+              No. Es un sitio independiente. ARBA no respalda ni audita esta estimación.
             </dd>
           </div>
           <div className="py-5">
