@@ -3,6 +3,7 @@ export const SITE_TAGLINE = "Calculadora independiente del impuesto automotor";
 export const AUTHOR_NAME = "Martín Galmarino";
 export const CONTACT_EMAIL = "m.galmarino@gmail.com";
 export const PUBLISHER_ID = "ca-pub-6771833588582297";
+export const GTM_ID = "GTM-PP356G7B";
 export const ARBA_URL = "https://www.arba.gob.ar";
 export const GOOGLE_PARTNER_DATA_URL =
   "https://policies.google.com/technologies/partner-sites";
